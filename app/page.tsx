@@ -19,12 +19,12 @@ export default function Home() {
   return (
     <div className='grid place-items-center min-h-screen gap-4'>
       <h1 className='text-2xl font-semibold'>
-        <a
+        <Link
           href='/'
           className='text-inherit no-underline hover:underline'
         >
           SupraDictionary
-        </a>
+        </Link>
       </h1>
 
       <div className='flex gap-2'>
