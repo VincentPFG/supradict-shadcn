@@ -45,9 +45,9 @@ export default function Home() {
           autoCapitalize='off'
         />
       </form>
-      <Suspense>
+      {/* <Suspense>
         <SearchResult></SearchResult>
-      </Suspense>
+      </Suspense> */}
 
       <MerriamWebster></MerriamWebster>
       <WordReferenceDropdown></WordReferenceDropdown>
