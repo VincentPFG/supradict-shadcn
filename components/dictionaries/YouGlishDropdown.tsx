@@ -1,0 +1,55 @@
+'use client'
+
+import { useSearchParams } from 'next/navigation'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+
+export function YouGlishDropdown() {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search') || ''
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button>YouGlish ▼</Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent>
+        <DropdownMenuItem asChild>
+          <a
+            href={`https://youglish.com/pronounce/${search}/english`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            English
+          </a>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <a
+            href={`https://youglish.com/pronounce/${search}/spanish`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Spanish
+          </a>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <a
+            href={`https://youglish.com/pronounce/${search}/french`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            French
+          </a>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
