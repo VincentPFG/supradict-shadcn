@@ -7,15 +7,16 @@ import { OxfordDropdown } from '@/components/dictionaries/OxfordDropdown'
 import { WiktionaryDropdown } from '@/components/dictionaries/WiktionaryDropdown'
 import { WordReferenceDropdown } from '@/components/dictionaries/WordReferenceDropdown'
 import { YouGlishDropdown } from '@/components/dictionaries/YouGlishDropdown'
+import { SearchResult } from '@/components/SearchResult'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default function Home() {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('search') || ''
   return (
     <div className='grid place-items-center min-h-screen gap-4'>
       <h1 className='text-2xl font-semibold'>
@@ -33,8 +34,10 @@ export default function Home() {
         <Badge variant='outline'>French</Badge>
       </div>
 
-      <form className='w-full max-w-md mb-4'>
+      <form className='w-full max-w-md grid gap-y-1 px-4'>
+        <Label htmlFor='search'>Search</Label>
         <Input
+          id='search'
           type='text'
           name='search'
           placeholder='Type then press Enter'
@@ -42,10 +45,9 @@ export default function Home() {
           autoCapitalize='off'
         />
       </form>
-
-      {search && (
-        <Badge variant='outline'>{search}</Badge>
-      )}
+      <Suspense>
+        <SearchResult></SearchResult>
+      </Suspense>
 
       <MerriamWebster></MerriamWebster>
       <WordReferenceDropdown></WordReferenceDropdown>

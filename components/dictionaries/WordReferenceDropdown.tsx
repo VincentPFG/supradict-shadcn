@@ -9,6 +9,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
+  DropdownMenuPortal,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 
@@ -22,7 +23,7 @@ export function WordReferenceDropdown() {
         <Button>WordReference ▼</Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent>
+      <DropdownMenuContent align='start'>
         {/* English submenu */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
